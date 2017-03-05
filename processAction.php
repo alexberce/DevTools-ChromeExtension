@@ -45,7 +45,7 @@ try {
 			break;
 	}
 } catch(Exception $e) {
-	respond(['error' => true, 'message' => 'There was an error processing your request']);
+	respond(['error' => true, 'message' => 'There was an error processing your request.']);
 }
 
 

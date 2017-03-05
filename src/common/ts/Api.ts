@@ -38,7 +38,7 @@ export class Api {
                 }).then(function(result){
                     defer.resolve(result);
                 }).fail(function(result){
-                    defer.reject(new Error('Failed to process the action.'));
+                    defer.reject(new Error('There was an error processing your request.'));
                 });
             }).promise();
         })(this);
