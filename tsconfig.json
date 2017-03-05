@@ -1,0 +1,12 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "module": "amd",
+    "sourceMap": false,
+    "removeComments": true,
+    "preserveConstEnums": true,
+    "noImplicitAny" : false,
+    "allowJs": true
+  },
+  "compileOnSave": true
+}

@@ -1,2 +1,2 @@
 # DevTools-ChromeExtension
-Chrome Extentension for Developers
+Chrome Extension for Developers

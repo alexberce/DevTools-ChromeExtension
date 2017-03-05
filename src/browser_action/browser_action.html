@@ -1,0 +1,57 @@
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="/src/browser_action/css/main.css"/>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,600?d1f922d" rel="stylesheet"
+          type="text/css"
+    />
+</head>
+<body>
+<div id="mainPopup">
+    <h2>Development Tools</h2>
+
+    <div>
+        <select name="action" id="action">
+            <optgroup label="Encoding">
+                <option value="base64_encode">base64_encode</option>
+                <option value="base64_decode">base64_decode</option>
+            </optgroup>
+            <optgroup label="Encryption">
+                <option value="md5">md5</option>
+                <option value="sha1">sha1</option>
+            </optgroup>
+            <optgroup label="Generation">
+                <option value="generate_string">Generate String (0-9A-Za-z)</option>
+                <option value="generate_string_with_special_characters">Generate String (0-9A-Za-z!@#$+)</option>
+            </optgroup>
+        </select>
+        <textarea name="input" id="input" placeholder="Enter your string here"></textarea>
+        <button id="processActionButton">Process</button>
+
+
+        <br/>
+        <br/>
+        <hr/>
+        <textarea id="result" placeholder="The result will be placed here"></textarea>
+    </div>
+
+    <div class="loader" id="loader">
+        <div class="loading-bar"></div>
+        <div class="loading-bar"></div>
+        <div class="loading-bar"></div>
+        <div class="loading-bar"></div>
+    </div>
+
+    <div id="DevToolsLoginDialog">
+        <form method="POST">
+            <label for="DevToolsToken" required>Token</label>
+            <input type="text" id="DevToolsToken" name="token"/>
+            <button type="submit" id="DevToolsLoginButton">Login</button>
+        </form>
+    </div>
+</div>
+
+<script type="text/javascript" src="/vendor/jquery/jquery-3.1.1.min.js"></script>
+<script type="text/javascript" src="/vendor/requirejs/requirejs-2.3.2.min.js"
+        data-main="/src/browser_action/ts/main.js"></script>
+</body>
+</html>

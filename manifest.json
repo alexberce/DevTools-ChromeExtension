@@ -1,0 +1,30 @@
+{
+  "name": "Dev Tools",
+  "version": "0.0.1",
+  "manifest_version": 2,
+  "description": "Chrome Extension for Developers",
+  "homepage_url": "http://invobox.com",
+  "icons": {
+    "128": "src/icons/icon512.png"
+  },
+  "default_locale": "en",
+  "background": {
+    "page": "src/bg/background.html",
+    "persistent": true
+  },
+  "browser_action": {
+    "default_icon": "src/icons/icon512.png",
+    "default_title": "Development Tools",
+    "default_popup": "src/browser_action/browser_action.html"
+  },
+  "permissions": [
+    "idle",
+    "clipboardRead",
+    "clipboardWrite",
+    "contextMenus",
+    "storage"
+  ],
+  "omnibox": {
+    "keyword": "e64"
+  }
+}
