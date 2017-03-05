@@ -4,7 +4,7 @@
 
 /// <reference path="../../../vendor/jquery/jquery.d.ts" />
 /// <reference path="../../../vendor/chrome/chrome.d.ts" />
-/// <reference path="../js/chrome-promise.js" />
+/// <reference path="../../../vendor/chrome/chrome-promise.js" />
 
 import {App} from './App';
 import {Api} from './Api';
