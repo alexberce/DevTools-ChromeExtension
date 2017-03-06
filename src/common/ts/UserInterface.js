@@ -3,9 +3,9 @@ define(["require", "exports"], function (require, exports) {
     var UserInterface = (function () {
         function UserInterface(api) {
             this.api = api;
+            this.translateInterface();
         }
         UserInterface.prototype.bindActions = function () {
-            this.translateInterface();
             this.bindEncoding();
         };
         UserInterface.prototype.updateResult = function (result) {

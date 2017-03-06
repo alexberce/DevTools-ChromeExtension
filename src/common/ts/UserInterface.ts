@@ -10,10 +10,10 @@ export class UserInterface {
      */
     constructor(api: Api) {
         this.api = api;
+        this.translateInterface();
     }
 
     public bindActions(): void {
-        this.translateInterface();
         this.bindEncoding();
     }
 
