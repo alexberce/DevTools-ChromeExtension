@@ -4,28 +4,37 @@ export class UserInterface {
 
     private api: Api;
 
-    constructor(api: Api){
+    /**
+     *
+     * @param api
+     */
+    constructor(api: Api) {
         this.api = api;
     }
 
-    public bindActions(){
+    public bindActions(): void {
+        this.translateInterface();
         this.bindEncoding();
     }
 
-    private static updateResult(result){
+    /**
+     *
+     * @param result
+     */
+    private updateResult(result): void {
         let message;
         try {
             let resultArray = JSON.parse(result);
             message = resultArray['message'];
         }
-        catch(e){
-            message = 'There was an error processing your request';
+        catch (e) {
+            message = this.getTranslation("apiGeneralError");
         }
 
         $('#result').html(message);
     }
 
-    public bindEncoding(){
+    public bindEncoding(): void {
         (function (self) {
             $('#processActionButton').click(function () {
                 let input = $('#input').val();
@@ -35,11 +44,39 @@ export class UserInterface {
         })(this);
     }
 
-    public triggerAction(input, action){
-        this.api.makeCall(input, action).then(function (result) {
-            UserInterface.updateResult(result);
-        }).fail(function (error) {
-            UserInterface.updateResult(error);
-        });
+    /**
+     *
+     * @param input
+     * @param action
+     */
+    public triggerAction(input, action): void {
+        (function (self) {
+            self.api.makeCall(input, action).then(function (result) {
+                self.updateResult(result);
+            }).fail(function (error) {
+                self.updateResult(error);
+            });
+        })(this);
+    }
+
+    public translateInterface(): void {
+        // TODO: translate placeholders and optgroup labels
+        (function (self) {
+            $('[data-i18n]').each(function () {
+                let element = $(this);
+                let resourceName = element.data('i18n');
+                let resourceText = self.getTranslation(resourceName);
+                element.text(resourceText);
+            });
+        })(this);
+    }
+
+    /**
+     *
+     * @param translationKey
+     * @returns {string}
+     */
+    private getTranslation(translationKey: string): string {
+        return chrome.i18n.getMessage(translationKey);
     }
 }

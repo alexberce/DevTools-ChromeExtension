@@ -5,16 +5,17 @@ define(["require", "exports"], function (require, exports) {
             this.api = api;
         }
         UserInterface.prototype.bindActions = function () {
+            this.translateInterface();
             this.bindEncoding();
         };
-        UserInterface.updateResult = function (result) {
+        UserInterface.prototype.updateResult = function (result) {
             var message;
             try {
                 var resultArray = JSON.parse(result);
                 message = resultArray['message'];
             }
             catch (e) {
-                message = 'There was an error processing your request';
+                message = this.getTranslation("apiGeneralError");
             }
             $('#result').html(message);
         };
@@ -28,11 +29,26 @@ define(["require", "exports"], function (require, exports) {
             })(this);
         };
         UserInterface.prototype.triggerAction = function (input, action) {
-            this.api.makeCall(input, action).then(function (result) {
-                UserInterface.updateResult(result);
-            }).fail(function (error) {
-                UserInterface.updateResult(error);
-            });
+            (function (self) {
+                self.api.makeCall(input, action).then(function (result) {
+                    self.updateResult(result);
+                }).fail(function (error) {
+                    self.updateResult(error);
+                });
+            })(this);
+        };
+        UserInterface.prototype.translateInterface = function () {
+            (function (self) {
+                $('[data-i18n]').each(function () {
+                    var element = $(this);
+                    var resourceName = element.data('i18n');
+                    var resourceText = self.getTranslation(resourceName);
+                    element.text(resourceText);
+                });
+            })(this);
+        };
+        UserInterface.prototype.getTranslation = function (translationKey) {
+            return chrome.i18n.getMessage(translationKey);
         };
         return UserInterface;
     }());

@@ -1,2 +1,50 @@
 {
+  "extName": {
+    "message": "Development Tools",
+    "description": "Extension name"
+  },
+  "extShortName": {
+    "message": "Dev Tools",
+    "description": "Extension short name"
+  },
+  "extDescription": {
+    "message": "Chrome Extension for Developers",
+    "description": "Extension description"
+  },
+  "token": {
+    "message": "Token",
+    "description": "Login token"
+  },
+  "loginButtonText": {
+    "message": "Login",
+    "description": "Login button text"
+  },
+  "processButtonText": {
+    "message": "Process",
+    "description": "Process button text"
+  },
+  "encodingActionText": {
+    "message": "Encoding",
+    "description": "Encoding action"
+  },
+  "encryptionActionText": {
+    "message": "Encryption",
+    "description": "Encryption action"
+  },
+  "generationActionText": {
+    "message": "Generation",
+    "description": "String generation action"
+  },
+  "generateAlphaNumericString": {
+    "message": "Generate String (0-9A-Za-z)",
+    "description": "Generate a simple string (only numbers and letters)"
+  },
+  "generateAlphaNumericPlusString": {
+    "message": "Generate String (0-9A-Za-z!@#$+)",
+    "description": "Generate a string with number, letters and special characters"
+  },
+  "apiGeneralError": {
+    "message": "There was an error processing your request.",
+    "description": "Generic API error"
+  }
 }

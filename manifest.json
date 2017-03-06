@@ -1,20 +1,22 @@
 {
-  "name": "Development Tools",
+  "name": "__MSG_extName__",
+  "short_name": "__MSG_extShortName__",
   "version": "0.0.1",
   "manifest_version": 2,
-  "description": "Chrome Extension for Developers",
+  "description": "__MSG_extDescription__",
   "homepage_url": "http://invobox.com",
   "icons": {
     "128": "src/icons/icon512.png"
   },
   "default_locale": "en",
+  "offline_enabled": false,
   "background": {
     "page": "src/bg/background.html",
     "persistent": true
   },
   "browser_action": {
     "default_icon": "src/icons/icon512.png",
-    "default_title": "Development Tools",
+    "default_title": "__MSG_extName__",
     "default_popup": "src/browser_action/browser_action.html"
   },
   "permissions": [
@@ -25,6 +27,6 @@
     "storage"
   ],
   "omnibox": {
-    "keyword": "e64"
+    "keyword": "dev"
   }
 }

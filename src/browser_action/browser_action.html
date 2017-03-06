@@ -7,7 +7,7 @@
 </head>
 <body>
 <div id="mainPopup">
-    <h2>Development Tools</h2>
+    <h2 data-i18n="extName">{{extName}}</h2>
 
     <div>
         <select name="action" id="action">
@@ -20,12 +20,12 @@
                 <option value="sha1">sha1</option>
             </optgroup>
             <optgroup label="Generation">
-                <option value="generate_string">Generate String (0-9A-Za-z)</option>
-                <option value="generate_string_with_special_characters">Generate String (0-9A-Za-z!@#$+)</option>
+                <option value="generate_string" data-i18n="generateAlphaNumericString">{{generateAlphaNumericString}}</option>
+                <option value="generate_string_with_special_characters" data-i18n="generateAlphaNumericPlusString">{{generateAlphaNumericPlusString}}</option>
             </optgroup>
         </select>
         <textarea name="input" id="input" placeholder="Enter your string here"></textarea>
-        <button id="processActionButton">Process</button>
+        <button id="processActionButton" data-i18n="processButtonText">{{processButtonText}}</button>
 
 
         <br/>
@@ -43,9 +43,9 @@
 
     <div id="DevToolsLoginDialog">
         <form method="POST">
-            <label for="DevToolsToken" required>Token</label>
+            <label for="DevToolsToken" required data-i18n="token">{{token}}</label>
             <input type="text" id="DevToolsToken" name="token"/>
-            <button type="submit" id="DevToolsLoginButton">Login</button>
+            <button type="submit" id="DevToolsLoginButton" data-i18n="loginButtonText">{{loginButtonText}}</button>
         </form>
     </div>
 </div>
