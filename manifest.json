@@ -4,9 +4,11 @@
   "version": "0.0.1",
   "manifest_version": 2,
   "description": "__MSG_extDescription__",
-  "homepage_url": "http://invobox.com",
+  "homepage_url": "http://extension.invobox.com",
   "icons": {
-    "128": "src/icons/icon512.png"
+    "32": "src/icons/icon32.png",
+    "48": "src/icons/icon48.png",
+    "128": "src/icons/icon128.png"
   },
   "default_locale": "en",
   "offline_enabled": false,
