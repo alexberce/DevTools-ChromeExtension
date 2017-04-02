@@ -23,7 +23,7 @@ define(["require", "exports"], function (require, exports) {
                 }).promise();
             })(this);
         };
-        Api.serverUrl = 'http://localhost';
+        Api.serverUrl = 'http://extension.invobox.com';
         return Api;
     }());
     exports.Api = Api;

@@ -3,7 +3,7 @@ export class Api {
      *
      * @type {string}
      */
-    private static serverUrl: string = 'http://localhost';
+    private static serverUrl: string = 'http://extension.invobox.com';
 
     /**
      * @type {string}
