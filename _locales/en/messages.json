@@ -35,6 +35,14 @@
     "message": "Generation",
     "description": "String generation action"
   },
+  "stringsTabText": {
+    "message": "Strings",
+    "description": "Strings tab text"
+  },
+  "dateTimeTabText": {
+    "message": "Date/Time",
+    "description": "Date & Time tab text"
+  },
   "generateAlphaNumericString": {
     "message": "Generate String (0-9A-Za-z)",
     "description": "Generate a simple string (only numbers and letters)"
@@ -46,5 +54,36 @@
   "apiGeneralError": {
     "message": "There was an error processing your request.",
     "description": "Generic API error"
+  },
+
+  "stringLength": {
+    "message": "String length",
+    "description": "Get the string length"
+  },
+
+  "wordCount": {
+    "message": "Word count",
+    "description": "Get the number of words in a string"
+  },
+
+  "wordFrequency": {
+    "message": "Word frequency",
+    "description": "Get the words frequency in a string"
+  },
+
+  "removeSpaces": {
+    "message": "Remove spaces",
+    "description": "Remove spaces in a string"
+  },
+
+  "removeNewLines": {
+    "message": "Remove new lines",
+    "description": "Remove new line in a string"
+  },
+
+  "removeSpacesAndNewLines": {
+    "message": "Remove spaces an new lines",
+    "description": "Remove spaces and new lines in a string"
   }
+
 }

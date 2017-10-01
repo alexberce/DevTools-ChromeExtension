@@ -1,5 +1,6 @@
-define(["require", "exports", '../../common/ts/bootstrap'], function (require, exports, bootstrap_1) {
+define(["require", "exports", "../../common/ts/bootstrap"], function (require, exports, bootstrap_1) {
     "use strict";
+    Object.defineProperty(exports, "__esModule", { value: true });
     chrome.extension.sendMessage({}, function (response) {
         var readyStateCheckInterval = setInterval(function () {
             if (document.readyState === "complete") {

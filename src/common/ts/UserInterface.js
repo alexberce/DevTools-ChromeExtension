@@ -1,5 +1,6 @@
 define(["require", "exports"], function (require, exports) {
     "use strict";
+    Object.defineProperty(exports, "__esModule", { value: true });
     var UserInterface = (function () {
         function UserInterface(api) {
             this.api = api;
@@ -7,6 +8,8 @@ define(["require", "exports"], function (require, exports) {
         }
         UserInterface.prototype.bindActions = function () {
             this.bindEncoding();
+            this.bindEvents();
+            this.populateActionsSelect('Encoding');
         };
         UserInterface.prototype.updateResult = function (result) {
             var message;
@@ -18,6 +21,23 @@ define(["require", "exports"], function (require, exports) {
                 message = this.getTranslation("apiGeneralError");
             }
             $('#result').html(message);
+        };
+        UserInterface.prototype.bindEvents = function () {
+            (function (self) {
+                $(function () {
+                    $("#tabs").tabs();
+                    $('.ui-tabs-anchor').on('click', function () {
+                        self.populateActionsSelect($(this).data('actions-label'));
+                    });
+                });
+            })(this);
+        };
+        UserInterface.prototype.populateActionsSelect = function (actionLabel) {
+            var actionSelect = $('#action');
+            actionSelect.children().remove();
+            $('#actions').find('optgroup[label="' + actionLabel + '"] option').each(function () {
+                actionSelect.append('<option value="' + $(this).val() + '">' + $(this).text() + '</option>');
+            });
         };
         UserInterface.prototype.bindEncoding = function () {
             (function (self) {

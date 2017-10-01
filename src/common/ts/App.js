@@ -1,5 +1,6 @@
 define(["require", "exports", "./bootstrap"], function (require, exports, bootstrap_1) {
     "use strict";
+    Object.defineProperty(exports, "__esModule", { value: true });
     var App = (function () {
         function App(token) {
             this.api = (new bootstrap_1.Api()).withToken(token);

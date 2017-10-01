@@ -42,6 +42,10 @@ select {
     margin-bottom: 10px;
 }
 
+select#actions {
+    display: none;
+}
+
 button {
     margin-top: 10px;
     padding: 5px 15px;
@@ -56,6 +60,7 @@ button {
 }
 
 #result {
+    height: 150px;
     margin-top: 10px;
     border-style: dotted;
 }
@@ -143,4 +148,64 @@ button {
         -webkit-transform: scale(1);
         transform: scale(1);
     }
+}
+
+/** TABS */
+ul.ui-tabs-nav {
+    -webkit-margin-after: 0;
+    -webkit-margin-before: 0;
+    -webkit-padding-start: 0;
+    -webkit-padding-end: 0;
+}
+
+ul.ui-tabs-nav:after,
+ul.ui-tabs-nav li:last-child:after {
+    display: block;
+    content: ' ';
+    clear: both;
+    float: none;
+}
+
+.ui-tabs-tab a,
+.ui-tabs-tab a:hover,
+.ui-tabs-tab a:visited,
+.ui-tabs-tab a:active {
+    color: #000;
+    text-decoration: none;
+    outline: none;
+    padding: 10px;
+    display: block;
+}
+
+.ui-tabs-tab {
+    float: left;
+    display: inline;
+    background: #ccc;
+    margin: 0 5px;
+    -webkit-border-radius: 5px 5px 0 0;
+    -moz-border-radius: 5px 5px 0 0;
+    border-radius: 5px 5px 0 0;
+    outline: none;
+}
+
+.ui-tabs-tab:first-child {
+    margin-left: 0;
+}
+
+.ui-tabs-tab.ui-tabs-active {
+    background: #5cb3e5;
+}
+
+.ui-tabs-tab.ui-tabs-active a {
+    color: #fff;
+}
+
+.ui-tabs-tab::after {
+    display: block;
+    clear: both;
+}
+
+.ui-tabs-panel {
+    padding-top: 5px;
+    border-top: 1px solid #eee;
 }

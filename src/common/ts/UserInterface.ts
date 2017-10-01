@@ -15,6 +15,8 @@ export class UserInterface {
 
     public bindActions(): void {
         this.bindEncoding();
+        this.bindEvents();
+        this.populateActionsSelect('Encoding');
     }
 
     /**
@@ -32,6 +34,28 @@ export class UserInterface {
         }
 
         $('#result').html(message);
+    }
+
+    public bindEvents(): void {
+        (function(self) {
+            $(function () {
+                $("#tabs").tabs();
+                $('.ui-tabs-anchor').on('click', function () {
+                    self.populateActionsSelect($(this).data('actions-label'));
+                });
+            });
+        })(this)
+    }
+
+    /**
+     * @param actionLabel
+     */
+    public populateActionsSelect(actionLabel): void {
+        let actionSelect = $('#action');
+        actionSelect.children().remove();
+        $('#actions').find('optgroup[label="' + actionLabel + '"] option').each(function () {
+            actionSelect.append('<option value="' + $(this).val() + '">' + $(this).text() + '</option>')
+        });
     }
 
     public bindEncoding(): void {

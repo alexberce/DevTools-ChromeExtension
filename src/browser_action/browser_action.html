@@ -1,7 +1,8 @@
 <html>
 <head>
     <link rel="stylesheet" type="text/css" href="/src/browser_action/css/main.css"/>
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,600?d1f922d" rel="stylesheet"
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,600?d1f922d"
+          rel="stylesheet"
           type="text/css"
     />
 </head>
@@ -9,8 +10,31 @@
 <div id="mainPopup">
     <h2 data-i18n="extName">{{extName}}</h2>
 
+    <div id="tabs">
+        <ul>
+            <li><a href="#tabs-1" data-actions-label="Encoding" data-i18n="encodingActionText">{{encodingActionText}}</a></li>
+            <li><a href="#tabs-2" data-actions-label="Encryption" data-i18n="encryptionActionText">{{encryptionActionText}}</a></li>
+            <li><a href="#tabs-3" data-actions-label="Generation" data-i18n="stringsTabText">{{stringsTabText}}</a></li>
+            <li><a href="#tabs-4" data-actions-label="DateTime" data-i18n="dateTimeTabText">{{dateTimeTabText}}</a></li>
+        </ul>
+        <div id="tabs-1">
+            <h3>String encoding/decoding</h3>
+        </div>
+        <div id="tabs-2">
+            <h3>String encryption</h3>
+        </div>
+        <div id="tabs-3">
+            <h3>String operations</h3>
+        </div>
+        <div id="tabs-4">
+            <h3>Date and time operations</h3>
+        </div>
+    </div>
+
     <div>
-        <select name="action" id="action">
+        <select name="action" id="action"></select>
+
+        <select name="actions" id="actions">
             <optgroup label="Encoding">
                 <option value="base64_encode">base64_encode</option>
                 <option value="base64_decode">base64_decode</option>
@@ -18,15 +42,27 @@
             <optgroup label="Encryption">
                 <option value="md5">md5</option>
                 <option value="sha1">sha1</option>
+                <option value="password_hash">password_hash</option>
             </optgroup>
             <optgroup label="Generation">
+                <option value="string_length" data-i18n="stringLength">{{stringLength}}</option>
+                <option value="word_count" data-i18n="wordCount">{{wordCount}}</option>
+                <option value="word_frequency" data-i18n="wordFrequency">{{wordFrequency}}</option>
+                <option value="remove_spaces" data-i18n="removeSpaces">{{removeSpaces}}</option>
+                <option value="remove_new_lines" data-i18n="removeNewLines">{{removeNewLines}}</option>
+                <option value="remove_spaces_and_new_lines" data-i18n="removeSpacesAndNewLines">{{removeSpacesAndNewLines}}</option>
                 <option value="generate_string" data-i18n="generateAlphaNumericString">{{generateAlphaNumericString}}</option>
                 <option value="generate_string_with_special_characters" data-i18n="generateAlphaNumericPlusString">{{generateAlphaNumericPlusString}}</option>
             </optgroup>
+            <optgroup label="DateTime">
+                <option value="current_timestamp">Current timestamp</option>
+                <option value="timestamp_to_date">Timestamp to date</option>
+                <option value="date_to_timestamp">Date to timestamp</option>
+            </optgroup>
         </select>
+
         <textarea name="input" id="input" placeholder="Enter your string here"></textarea>
         <button id="processActionButton" data-i18n="processButtonText">{{processButtonText}}</button>
-
 
         <br/>
         <br/>
@@ -43,7 +79,7 @@
 
     <div id="DevToolsLoginDialog">
         <form method="POST">
-            <label for="DevToolsToken" required data-i18n="token">{{token}}</label>
+            <label for="DevToolsToken" data-i18n="token">{{token}}</label>
             <input type="text" id="DevToolsToken" name="token"/>
             <button type="submit" id="DevToolsLoginButton" data-i18n="loginButtonText">{{loginButtonText}}</button>
         </form>
@@ -51,6 +87,7 @@
 </div>
 
 <script type="text/javascript" src="/vendor/jquery/jquery-3.1.1.min.js"></script>
+<script src="/vendor/jquery/jquery-ui-1.12.1.js"></script>
 <script type="text/javascript" src="/vendor/requirejs/requirejs-2.3.2.min.js"
         data-main="/src/browser_action/ts/main.js"></script>
 </body>
